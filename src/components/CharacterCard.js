@@ -3,23 +3,30 @@ import styles from "styled-components";
 
 const Card = styles.div`
 width: 10rem;
-
+margin: 2rem;
+background-color: lightgrey;
+border-radius: 1rem;
 `;
 
-export default function CharacterCard({ name, species, status, image }) {
+const CharacterCard = props => {
+  const character = props.character;
+
   return (
-    <Card>
-      <img src={image} className="card-img-top" alt="profile" />
-      <div className="card-body">
-        <h5 className="card-title">{name}</h5>
-        <p className="card-text">
-          {species}
-          {status}
-        </p>
-        <a href="#" className="btn btn-primary">
-          Go somewhere
-        </a>
-      </div>
-    </Card>
+    <>
+      {character.map(character => {
+        return (
+          <Card key={character.id}>
+            <img src={character.image} className="card-img-top" alt="profile" />
+            <div className="card-body">
+              <h5 className="card-title">{character.name}</h5>
+              <p className="card-text">{character.species} </p>
+              <p className="card-text"> {character.status}</p>
+            </div>
+          </Card>
+        );
+      })}
+      ;
+    </>
   );
-}
+};
+export default CharacterCard;

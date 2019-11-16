@@ -1,20 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from "styled-components";
+
+const PsuedoNav = styles.div`
+display: flex;
+justify-content: space-evenly;
+`;
+
 export default function WelcomePage() {
   return (
     <section className="welcome-page">
       <header>
-        <h1>Welcome to the ultimate fan site!</h1>
-        <Link to="/characters">
-          <button type="button" className="btn btn-info">
-            Characters
-          </button>
-        </Link>
-        <Link to="/search">
-          <button type="button" className="btn btn-info">
-            Search
-          </button>
-        </Link>
+        <PsuedoNav>
+          <h1>Welcome to the ultimate fan site!</h1>
+          <Link to="/characters">
+            <button type="button" className="btn btn-info">
+              Characters
+            </button>
+          </Link>
+        </PsuedoNav>
 
         <img
           className="main-img"
